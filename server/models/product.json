@@ -1,0 +1,35 @@
+{
+  "name": "Product",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "productName": {
+      "type": "string",
+      "required": true
+    },
+    "productLocation": {
+      "type": "string",
+      "required": true
+    },
+    "postedDate": {
+      "type": "date",
+      "required": true
+    },
+    "productDes": {
+      "type": "string"
+    },
+    "productStatus": {
+      "type": "string"
+    },
+    "productSold": {
+      "type": "boolean"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
