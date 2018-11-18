@@ -30,10 +30,11 @@
   },
   "validations": [],
   "relations": {
-    "category": {
-      "type": "belongsTo",
-      "model": "Category",
-      "foreignKey": ""
+    "customerToWish": {
+      "type": "hasMany",
+      "model": "Customer",
+      "foreignKey": "product_Id",
+      "through": "Wishlist"
     }
   },
   "acls": [],

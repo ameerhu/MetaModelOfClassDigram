@@ -16,7 +16,7 @@
     "products": {
       "type": "hasMany",
       "model": "Product",
-      "foreignKey": ""
+      "foreignKey": "category_Id"
     }
   },
   "acls": [],

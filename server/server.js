@@ -5,6 +5,12 @@ var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
 
+//commands for firebase
+// var firebase = require('firebase');
+// require('firebase/database');
+// var app = firebase.initializeApp({config});
+
+
 app.start = function() {
   // start the web server
   return app.listen(function() {
