@@ -6,7 +6,7 @@
     "validateUpsert": true
   },
   "properties": {
-    "messageBody": {
+    "body": {
       "type": "string",
       "required": true
     }

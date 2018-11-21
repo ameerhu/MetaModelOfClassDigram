@@ -6,11 +6,11 @@
     "validateUpsert": true
   },
   "properties": {
-    "productName": {
+    "name": {
       "type": "string",
       "required": true
     },
-    "productLocation": {
+    "location": {
       "type": "string",
       "required": true
     },
@@ -18,13 +18,13 @@
       "type": "date",
       "required": true
     },
-    "productDes": {
+    "description": {
       "type": "string"
     },
-    "productStatus": {
+    "status": {
       "type": "string"
     },
-    "productSold": {
+    "sold": {
       "type": "boolean"
     }
   },
