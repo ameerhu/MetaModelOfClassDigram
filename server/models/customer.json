@@ -6,19 +6,19 @@
     "validateUpsert": true
   },
   "properties": {
-    "customerFName": {
+    "firstName": {
       "type": "string",
       "required": true
     },
-    "customerLName": {
+    "lastName": {
       "type": "string",
       "required": true
     },
-    "customerAddress": {
+    "address": {
       "type": "string",
       "required": true
     },
-    "customerPhone": {
+    "phone": {
       "type": "string",
       "required": true
     }
