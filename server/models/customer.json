@@ -1,0 +1,48 @@
+{
+  "name": "Customer",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "customerFName": {
+      "type": "string",
+      "required": true
+    },
+    "customerLName": {
+      "type": "string",
+      "required": true
+    },
+    "customerAddress": {
+      "type": "string",
+      "required": true
+    },
+    "customerPhone": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "productsInWish": {
+      "type": "hasMany",
+      "model": "Product",
+      "foreignKey": "customer_Id",
+      "through": "Wishlist"
+    },
+    "postedProducts": {
+      "type": "hasMany",
+      "model": "Product",
+      "foreignKey": "customer_Id"
+    },
+    "senderReceiverRelation": {
+      "type": "hasMany",
+      "model": "Customer",
+      "foreignKey": "customer_Id",
+      "through": "Message"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
