@@ -36,23 +36,23 @@
     "public": false
   },
   "Category": {
-    "dataSource": "db",
+    "dataSource": "mlab",
     "public": true
   },
   "Product": {
-    "dataSource": "db",
+    "dataSource": "mlab",
     "public": true
   },
   "Customer": {
-    "dataSource": "db",
+    "dataSource": "mlab",
     "public": true
   },
   "Wishlist": {
-    "dataSource": "db",
+    "dataSource": "mlab",
     "public": true
   },
   "Message": {
-    "dataSource": "db",
+    "dataSource": "mlab",
     "public": true
   }
 }

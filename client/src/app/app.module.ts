@@ -11,6 +11,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
    MatListModule, MatCardModule, MatBadgeModule } from '@angular/material';
 import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Route[] = [
   { path: '', component: ProductListComponent },
@@ -30,6 +31,7 @@ const routes: Route[] = [
     GravatarModule,
     RouterModule.forRoot(routes),
     LayoutModule,
+    HttpClientModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
@@ -38,7 +40,9 @@ const routes: Route[] = [
     MatBadgeModule,
     MatListModule
   ],
-  providers: [],
+  providers: [
+    HttpClientModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

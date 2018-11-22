@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
-import { Product, User } from '../model';
+import { Product, Customer } from '../model';
 import { config } from '../config';
 
 @Injectable({
@@ -18,21 +18,21 @@ export class ProductService {
     return this.http.post(config.apiUrl + '/products', formData);
   }
 
-  solveProduct(product: Product) {
-    product.solved = true;
-    return this.http.put(config.apiUrl + '/products', Product);
-  }
+  // solveProduct(product: Product) {
+  //   product.solved = true;
+  //   return this.http.put(config.apiUrl + '/products', Product);
+  // }
 
-  upvote(product: Product, user: User) {
-    product.upvote.push(user);
-    return this.http.put(config.apiUrl + '/products', Product);
-  }
+  // upvote(product: Product, customer: Customer) {
+  //   product.upvote.push(customer);
+  //   return this.http.put(config.apiUrl + '/products', Product);
+  // }
 
-  downvote(product: Product, user: User) {
-    const index = product.upvote.findIndex(u => u.username === user.username);
-    if (index > -1) {
-      product.upvote.splice(index, 1);
-    }
-    return this.http.put(config.apiUrl + '/products', Product);
-  }
+  // downvote(product: Product, customer: Customer) {
+  //   const index = product.upvote.findIndex(u => u.customername === customer.customername);
+  //   if (index > -1) {
+  //     product.upvote.splice(index, 1);
+  //   }
+  //   return this.http.put(config.apiUrl + '/products', Product);
+  // }
 }

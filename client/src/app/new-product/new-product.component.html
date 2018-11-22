@@ -1,0 +1,39 @@
+<div class="container">
+    <mat-toolbar class="toolbar mat-elevation-z6">
+      <button mat-icon-button routerLink=""><mat-icon>arrow_back</mat-icon></button>
+      <h1 class="app-name">New Product</h1>
+      <span style="flex:1 1 auto"></span>
+      <a mat-icon-button [matMenuTriggerFor]="menu">
+        <img style="height: 32px;" src="../../../assets/img/github.png"/>
+      </a>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Profile</button>
+        <button mat-menu-item>Logout</button>
+      </mat-menu>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="sidenav-container">
+      <mat-sidenav-content style="display: flex; flex-direction: column; align-items: center;">
+        <form [formGroup]="newProduct" (ngSubmit)="createNewProduct()">
+          <mat-card class="example-card">
+            <mat-form-field>
+              <textarea matInput placeholder="Description" formControlName="description"></textarea>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-select placeholder="City" formControlName="city">
+                  <mat-option *ngFor="let city of cities" [value]="city"> {{ city }} </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <image-upload url="{{config.apiUrl}}/imageUpload"
+            (removed)="onImageRemoved($event)"
+            (uploadFinished)="onImageUploaded($event)"></image-upload>
+            <mat-card-actions class="product-actions">
+              <button class="button-post" mat-raised-button type="submit" [disabled]="newProduct.invalid">
+                Post
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </form>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product, User } from '../model';
+import { Product, Customer } from '../model';
 import { ProductService } from '../_services/product.service';
 
 @Component({
@@ -9,28 +9,28 @@ import { ProductService } from '../_services/product.service';
 })
 export class ProductComponent {
   @Input() product: Product;
-  currentUser: User;
+  currentCustomer: Customer;
   email;
 
   constructor(private productService: ProductService) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.currentCustomer = JSON.parse(localStorage.getItem('currentCustomer'));
   }
 
-  solve() {
-    this.productService.solveProduct(this.product).subscribe(data => {
-      this.product.solved = true;
-    });
-  }
+  // solve() {
+  //   this.productService.solveProduct(this.product).subscribe(data => {
+  //     this.product.solved = true;
+  //   });
+  // }
 
-  hasUpvoted() {
-    return this.product.upvote.filter(user => user.username === this.currentUser.username).length > 0;
-  }
+  // hasUpvoted() {
+  //   return this.product.upvote.filter(customer => customer.customername === this.currentCustomer.customername).length > 0;
+  // }
 
-  upvote() {
-    this.productService.upvote(this.product, this.currentUser);
-  }
+  // upvote() {
+  //   this.productService.upvote(this.product, this.currentCustomer);
+  // }
 
-  downvote() {
-    this.productService.downvote(this.product, this.currentUser);
-  }
+  // downvote() {
+  //   this.productService.downvote(this.product, this.currentCustomer);
+  // }
 }
