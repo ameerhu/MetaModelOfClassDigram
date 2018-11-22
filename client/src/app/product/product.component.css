@@ -1,0 +1,45 @@
+.product-card {
+  max-width: 600px;
+  margin: 1rem 0.5rem 0;
+}
+
+.product-header-image {
+  background-size: cover;
+}
+
+.card-image-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.card-image-wrapper {
+  padding: 0.1rem;
+  max-width: 50%;
+}
+img {
+  width: 100%;
+}
+.product-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.button-upvote {
+  background-color: #00c6fb;
+  margin: 0 10px !important;
+}
+.solved {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.solved > p {
+  margin: 10px 0;
+}
+
+@media only screen and (min-width: 650px) {
+  .product-card {
+    width: 500px;
+  }
+}

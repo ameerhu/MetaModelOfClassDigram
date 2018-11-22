@@ -1,0 +1,7 @@
+<p>
+  product-list works!
+</p>
+
+<ng-template ngFor let-product [ngForOf]="products | async">
+          <app-product [product]="product"></app-product>
+        </ng-template>
