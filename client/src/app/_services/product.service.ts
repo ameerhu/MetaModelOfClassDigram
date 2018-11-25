@@ -10,8 +10,11 @@ export class ProductService {
   config = config.apiUrl;
   constructor(private http: HttpClient) { }
 
-  getAll() {
-    return this.http.get<Product[]>(config.apiUrl + '/products?filter[order]=createdAt%20DESC');
+  getAll(searchTerm?) {
+    if (searchTerm)  {
+      return this.http.get<Product[]>(config.apiUrl + '/products?filter[where][name][like]=' + searchTerm);
+    }
+    return this.http.get<Product[]>(config.apiUrl + '/products');
   }
 
   createProduct(formData) {

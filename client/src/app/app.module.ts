@@ -12,6 +12,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
 import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 const routes: Route[] = [
   { path: '', component: ProductListComponent },
@@ -28,6 +29,7 @@ const routes: Route[] = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     GravatarModule,
     RouterModule.forRoot(routes),
     LayoutModule,

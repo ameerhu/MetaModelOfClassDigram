@@ -10,11 +10,16 @@ import { Observable } from 'rxjs';
 })
 export class ProductListComponent implements OnInit {
 
+  searchTerm;
   products: Observable<Product[]>;
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
     this.products = this.productService.getAll();
+  }
+
+  search() {
+    this.products = this.productService.getAll(this.searchTerm);
   }
 
 }
