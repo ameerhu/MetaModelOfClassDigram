@@ -1,0 +1,11 @@
+<!--<ul>
+  <li *ngFor="let category of categories$">
+    <a routerLink="{{category.id}}">{{category.name}}</a>
+    
+  </li>
+</ul>-->
+
+<mat-nav-list *ngFor="let category of categories$">
+      <a mat-list-item routerLink="{{category.id}}">{{category.name}}</a>
+     
+</mat-nav-list>

@@ -14,6 +14,10 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { CategoriesComponent } from './categories/categories.component';
+
+
 const routes: Route[] = [
   { path: '', component: ProductListComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
@@ -25,6 +29,10 @@ const routes: Route[] = [
     NavComponent,
     ProductComponent,
     ProductListComponent,
+    
+    MainNavComponent,
+    
+    CategoriesComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +48,10 @@ const routes: Route[] = [
     MatIconModule,
     MatCardModule,
     MatBadgeModule,
-    MatListModule
+    MatListModule,
+    MatButtonModule 
+    
+
   ],
   providers: [
     HttpClientModule

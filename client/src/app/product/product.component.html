@@ -1,4 +1,5 @@
 <mat-card class="product-card">
+  <div class="product-left">
   <mat-card-header>
     <!-- <div mat-card-avatar class="product-header-image" [ngStyle]="{'background-image': 'url('+ product.createdBy.avatar + ')'}"></div> -->
     <div mat-card-avatar class="product-header-image">
@@ -8,16 +9,19 @@
     <!--mat-card-subtitle>{{product.createdAt | date: 'medium'}}</mat-card-subtitle-->
   </mat-card-header>
   <mat-card-content>
+    <div class="spacer"></div>
     <p> {{product.description}} </p>
   </mat-card-content>
   <!--div class="card-image-list">
     <div class="card-image-wrapper" *ngFor="let image of product.images">
-      <img src="{{image}}">
+      
     </div>
   </div-->
+  
   <mat-list>
 
   </mat-list>
+  <div class="product-price"><strong>Price:</strong> {{product.price}}</div>
   <mat-card-actions class="product-actions">
     <!--button class="button-upvote" mat-raised-button matBadge="{{product.upvote.length}}" matBadgePosition="after" matBadgeColor="accent"
       (click)="hasUpvoted()? downvote() : upvote()">
@@ -33,4 +37,14 @@
       <p>Solved</p>
     </span-->
   </mat-card-actions>
+</div>
+<div class="product-right">
+ 
+<div class="product-image">
+  <img src="http://pluspng.com/img-png/iphone-6s-logo-vector-png-apple-iphone-6s-logo-vector-200.png">
+  <!--<img src="{{product.image}}">-->
+</div>   
+    
+<button class="product-button">Buy</button>
+</div>
 </mat-card>

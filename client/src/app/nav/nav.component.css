@@ -11,3 +11,14 @@
   text-decoration: none;
   color: white;
 }
+
+.spacer{
+  flex: 1 1 auto;
+}
+
+.mat-toolbar a{
+  display: inline-block;
+  margin: 0 10px;
+  text-decoration: none;
+  color:white
+}
