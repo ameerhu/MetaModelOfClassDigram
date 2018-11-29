@@ -40,7 +40,7 @@
       "foreignKey": "customer_Id",
       "through": "Wishlist"
     },
-        "senderReceiverRelation": {
+    "senderReceiverRelation": {
       "type": "hasMany",
       "model": "Customer",
       "foreignKey": "customer_Id",
@@ -49,6 +49,4 @@
   },
   "acls": [],
   "methods": {}
-  
 }
-
