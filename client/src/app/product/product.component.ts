@@ -9,28 +9,34 @@ import { ProductService } from '../_services/product.service';
 })
 export class ProductComponent {
   @Input() product: Product;
-  currentCustomer: Customer;
-  email;
+  currentCustomer;
 
   constructor(private productService: ProductService) {
-    this.currentCustomer = JSON.parse(localStorage.getItem('currentCustomer'));
+    // this.currentCustomer = JSON.parse(localStorage.getItem('currentCustomer'));
+    this.currentCustomer = {
+      name: 'Ammar Hasan',
+      username: 'ammar94',
+      avatar: 'https://secure.gravatar.com/avatar/8149de7ed3ea7fe8d638d98201443d5b?size=800',
+      email: 'hasanammar94@gmail.com',
+    };
+
   }
 
-  // solve() {
-  //   this.productService.solveProduct(this.product).subscribe(data => {
-  //     this.product.solved = true;
-  //   });
-  // }
+  buy() {
+    // this.productService.solveProduct(this.product).subscribe(data => {
+    //   this.product.solved = true;
+    // });
+  }
 
-  // hasUpvoted() {
-  //   return this.product.upvote.filter(customer => customer.customername === this.currentCustomer.customername).length > 0;
-  // }
+  hasWished() {
+    // return this.product.wish.filter(customer => customer.customername === this.currentCustomer.customername).length > 0;
+  }
 
-  // upvote() {
-  //   this.productService.upvote(this.product, this.currentCustomer);
-  // }
+  wish() {
+    // this.productService.wish(this.product, this.currentCustomer);
+  }
 
-  // downvote() {
-  //   this.productService.downvote(this.product, this.currentCustomer);
-  // }
+  unwish() {
+    // this.productService.unwish(this.product, this.currentCustomer);
+  }
 }

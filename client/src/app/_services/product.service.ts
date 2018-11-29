@@ -2,19 +2,24 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Product, Customer } from '../model';
 import { config } from '../config';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  config = config.apiUrl;
+  products: BehaviorSubject<Product[]> = new BehaviorSubject([]);
   constructor(private http: HttpClient) { }
 
   getAll(searchTerm?) {
-    if (searchTerm)  {
-      return this.http.get<Product[]>(config.apiUrl + '/products?filter[where][name][like]=' + searchTerm);
+    let queryString = '';
+    if (searchTerm) {
+      queryString = '?filter[where][name][like]=' + searchTerm;
     }
-    return this.http.get<Product[]>(config.apiUrl + '/products');
+    this.http.get<Product[]>(config.apiUrl + '/products' + queryString)
+      .subscribe(data => {
+        this.products.next(data);
+      });
   }
 
   createProduct(formData) {
@@ -26,15 +31,15 @@ export class ProductService {
   //   return this.http.put(config.apiUrl + '/products', Product);
   // }
 
-  // upvote(product: Product, customer: Customer) {
-  //   product.upvote.push(customer);
+  // wish(product: Product, customer: Customer) {
+  //   product.wish.push(customer);
   //   return this.http.put(config.apiUrl + '/products', Product);
   // }
 
-  // downvote(product: Product, customer: Customer) {
-  //   const index = product.upvote.findIndex(u => u.customername === customer.customername);
+  // unwish(product: Product, customer: Customer) {
+  //   const index = product.wish.findIndex(u => u.customername === customer.customername);
   //   if (index > -1) {
-  //     product.upvote.splice(index, 1);
+  //     product.wish.splice(index, 1);
   //   }
   //   return this.http.put(config.apiUrl + '/products', Product);
   // }

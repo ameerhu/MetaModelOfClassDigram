@@ -1,13 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-html,
-body{
-    height:100%
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 body{
+    height:100%;
     margin: 0;
 }
 
-.avatar-image{
-    background-image: url("../src/images/icon.jpg");
-    background-size: cover;
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

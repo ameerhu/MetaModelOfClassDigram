@@ -3,11 +3,11 @@ import { HttpClient} from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryListService {
+export class CategoryService {
 
   constructor(private http: HttpClient) { }
 
-  getCategories(){
-    return  this.http.get('http://localhost:3000/api/Categories')
+  get() {
+    return this.http.get('http://localhost:3000/api/Categories');
   }
 }

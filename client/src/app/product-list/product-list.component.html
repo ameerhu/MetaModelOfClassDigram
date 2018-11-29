@@ -1,8 +1,5 @@
-<p>
-    <input matInput name="search" [(ngModel)]="searchTerm" placeholder="Enter Serach term here">
-    <button mat-button (click)="search()">Search</button>
-</p>
-
-<ng-template ngFor let-product [ngForOf]="products | async">
-  <app-product [product]="product"></app-product>
-</ng-template>
+<div class="main-container">
+  <ng-template ngFor let-product [ngForOf]="products">
+    <app-product [product]="product"></app-product>
+  </ng-template>
+</div>

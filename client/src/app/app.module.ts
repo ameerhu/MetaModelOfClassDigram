@@ -8,15 +8,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
-   MatListModule, MatCardModule, MatBadgeModule } from '@angular/material';
+   MatListModule, MatCardModule, MatBadgeModule, MatMenuModule } from '@angular/material';
 import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-
-import { MainNavComponent } from './main-nav/main-nav.component';
 import { CategoriesComponent } from './categories/categories.component';
-
+import { FormsModule } from '@angular/forms';
 
 const routes: Route[] = [
   { path: '', component: ProductListComponent },
@@ -29,9 +26,6 @@ const routes: Route[] = [
     NavComponent,
     ProductComponent,
     ProductListComponent,
-    
-    MainNavComponent,
-    
     CategoriesComponent,
   ],
   imports: [
@@ -49,9 +43,7 @@ const routes: Route[] = [
     MatCardModule,
     MatBadgeModule,
     MatListModule,
-    MatButtonModule 
-    
-
+    MatMenuModule
   ],
   providers: [
     HttpClientModule
