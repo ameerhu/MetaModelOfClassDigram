@@ -8,12 +8,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
-   MatListModule, MatCardModule, MatBadgeModule, MatMenuModule } from '@angular/material';
+   MatListModule, MatCardModule, MatBadgeModule, MatMenuModule, MatFormFieldModule,
+   MatSelectModule, MatInputModule } from '@angular/material';
 import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoriesComponent } from './categories/categories.component';
-import { FormsModule } from '@angular/forms';
+import { NewProductComponent } from './new-product/new-product.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ImageUploadModule } from 'angular2-image-upload';
 
 const routes: Route[] = [
   { path: '', component: ProductListComponent },
@@ -27,15 +30,21 @@ const routes: Route[] = [
     ProductComponent,
     ProductListComponent,
     CategoriesComponent,
+    NewProductComponent
   ],
   imports: [
+    ImageUploadModule.forRoot(),
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     GravatarModule,
     RouterModule.forRoot(routes),
     LayoutModule,
     HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
