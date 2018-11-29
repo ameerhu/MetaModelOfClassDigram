@@ -25,17 +25,22 @@
   },
   "validations": [],
   "relations": {
+    "products": {
+      "type": "embedsMany",
+      "model": "Product",
+      "property": "products",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
     "productsInWish": {
       "type": "hasMany",
       "model": "Product",
       "foreignKey": "customer_Id",
       "through": "Wishlist"
     },
-    "postedProducts": {
-      "type": "hasMany",
-      "model": "Product",
-      "foreignKey": "customer_Id"
-    },
+ 
     "senderReceiverRelation": {
       "type": "hasMany",
       "model": "Customer",
@@ -45,4 +50,6 @@
   },
   "acls": [],
   "methods": {}
+  
 }
+
