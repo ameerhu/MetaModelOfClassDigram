@@ -14,6 +14,16 @@ export class Product {
     public postedDate: Date,
     public description: String,
     public status: String,
-    public sold: Boolean
+    public sold: Boolean,
+    public id: String
   ) { }
+}
+
+export class Criteria {
+  constructor(
+    public area: String,
+    public minPrice: number,
+    public maxPrice: number,
+    public postedDate: Date
+  ){}
 }
