@@ -22,6 +22,26 @@ export class ProductService {
       });
   }
 
+  getAllByCriteria(data?) {
+    if (data)  {
+      console.log("True if");
+      // console.log(data);
+      data = JSON.parse(data);
+      // console.log(data.location);
+      console.log('/products?filter[where][location][like]=' + data.location);
+      this.http.get<Product[]>(config.apiUrl + '/products?filter[where][location][like]=' + data.location)
+        .subscribe(data => {
+          this.products.next(data);
+        });
+    } else {
+      console.log("if false");
+      this.http.get<Product[]>(config.apiUrl + '/products')
+        .subscribe(data => {
+          this.products.next(data);
+        });
+    }
+  }
+
   createProduct(formData) {
     return this.http.post(config.apiUrl + '/products', formData);
   }

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Product, Customer } from '../model';
 import { ProductService } from '../_services/product.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -11,8 +12,10 @@ export class ProductComponent {
   @Input() product: Product;
   currentCustomer;
 
-  constructor(private productService: ProductService) {
-    // this.currentCustomer = JSON.parse(localStorage.getItem('currentCustomer'));
+  constructor(
+    private productService: ProductService,
+    private router: Router) {
+
     this.currentCustomer = {
       name: 'Ammar Hasan',
       username: 'ammar94',
@@ -20,6 +23,11 @@ export class ProductComponent {
       email: 'hasanammar94@gmail.com',
     };
 
+  }
+
+  detailProduct(product){
+    let p = JSON.stringify(product);
+    this.router.navigate(['searchDetail', {p:p}]);
   }
 
   buy() {

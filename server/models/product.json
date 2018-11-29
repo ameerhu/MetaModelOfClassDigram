@@ -26,6 +26,16 @@
     },
     "sold": {
       "type": "boolean"
+    },
+    "image": {
+      "type": [
+        "string"
+      ],
+      "required": true
+    },
+    "price": {
+      "type": "number",
+      "required": true
     }
   },
   "validations": [],
