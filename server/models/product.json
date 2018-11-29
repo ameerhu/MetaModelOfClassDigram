@@ -26,6 +26,12 @@
     },
     "sold": {
       "type": "boolean"
+    },
+    "image": {
+      "type": [
+        "string"
+      ],
+      "required": true
     }
   },
   "validations": [],
