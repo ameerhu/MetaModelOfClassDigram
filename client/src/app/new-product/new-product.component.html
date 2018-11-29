@@ -1,0 +1,31 @@
+<form [formGroup]="newProduct" (ngSubmit)="createNewProduct()">
+  <mat-card class="example-card">
+    <mat-form-field>
+      <input matInput placeholder="Title" formControlName="title"/>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="Description" formControlName="description"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Price" formControlName="price"/>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Category" formControlName="category">
+          <mat-option *ngFor="let category of categories" [value]="category"> {{ category }} </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Location" formControlName="location">
+          <mat-option *ngFor="let location of locations" [value]="location"> {{ location }} </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <image-upload url="{{config.apiUrl}}/imageUpload"
+    (removed)="onImageRemoved($event)"
+    (uploadFinished)="onImageUploaded($event)"></image-upload>
+    <mat-card-actions class="product-actions">
+      <button class="button-post" mat-raised-button type="submit" [disabled]="newProduct.invalid">
+        Post
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>
