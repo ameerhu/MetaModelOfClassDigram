@@ -5,6 +5,14 @@ var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
 
+var multer = require('multer');
+app.use(multer().any());
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
 app.start = function() {
   // start the web server
   return app.listen(function() {
