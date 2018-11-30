@@ -25,9 +25,10 @@
       "type": "string"
     },
     "sold": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
-    "image": {
+    "images": {
       "type": [
         "string"
       ],
@@ -45,6 +46,16 @@
       "model": "Customer",
       "foreignKey": "product_Id",
       "through": "Wishlist"
+    },
+    "category": {
+      "type": "belongsTo",
+      "model": "Category",
+      "foreignKey": "categoryId"
+    },
+    "owner": {
+      "type": "belongsTo",
+      "model": "Customer",
+      "foreignKey": "customerId"
     }
   },
   "acls": [],
