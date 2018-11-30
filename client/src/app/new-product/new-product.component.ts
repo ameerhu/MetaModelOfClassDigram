@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductService } from '../_services/product.service';
-import { Router } from '@angular/router';
+import { CategoryService } from '../_services/category.service';
 import { config } from '../config';
+import { Customer } from '../model';
 
 @Component({
   selector: 'app-new-product',
@@ -11,9 +12,11 @@ import { config } from '../config';
 })
 export class NewProductComponent implements OnInit {
 
-  categories = [
-    'Electronic',
-    'Clothing'
+  $categories;
+  locations = [
+    'Fulda',
+    'Frankfurt',
+    'Berlin'
   ];
   newProduct: FormGroup;
   uploadedImages = [];
@@ -21,30 +24,29 @@ export class NewProductComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private formBuilder: FormBuilder,
-    private router: Router
-  ) { }
+    private categoryService: CategoryService,
+    private formBuilder: FormBuilder
+    ) { }
 
-  ngOnInit() {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    ngOnInit() {
+    this.$categories = this.categoryService.get();
     this.newProduct = this.formBuilder.group({
       'description': ['', Validators.required],
-      'title': ['', Validators.required],
+      'name': ['', Validators.required],
       'price': ['', Validators.required],
       'location': ['', Validators.required],
-      'category': ['', Validators.required],
-      'createdBy': [currentUser],
-      'createdAt': new Date(),
+      'categoryId': ['', Validators.required],
+      'customerId': [ new Customer().id],
+      'postedDate': new Date(),
+      'sold': [false],
+      'status': ['pending'],
       'images': [''],
     });
   }
 
   createNewProduct() {
     this.newProduct.controls['images'].setValue(this.uploadedImages.map(i => i.location));
-    this.productService.createProduct(this.newProduct.value)
-      .subscribe(response => {
-        this.router.navigate(['/']);
-      });
+    this.productService.createProduct(this.newProduct.value);
   }
 
   onImageRemoved($event) {

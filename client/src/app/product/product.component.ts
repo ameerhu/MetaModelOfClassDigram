@@ -10,24 +10,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProductComponent {
   @Input() product: Product;
-  currentCustomer;
+  currentUser;
 
   constructor(
     private productService: ProductService,
     private router: Router) {
 
-    this.currentCustomer = {
-      name: 'Ammar Hasan',
-      username: 'ammar94',
-      avatar: 'https://secure.gravatar.com/avatar/8149de7ed3ea7fe8d638d98201443d5b?size=800',
-      email: 'hasanammar94@gmail.com',
-    };
+    this.currentUser = new Customer();
 
   }
 
-  detailProduct(product){
-    let p = JSON.stringify(product);
-    this.router.navigate(['searchDetail', {p:p}]);
+  detailProduct(product) {
+    const p = JSON.stringify(product);
+    this.router.navigate(['searchDetail', { p: p }]);
   }
 
   buy() {
@@ -37,14 +32,14 @@ export class ProductComponent {
   }
 
   hasWished() {
-    // return this.product.wish.filter(customer => customer.customername === this.currentCustomer.customername).length > 0;
+    // return this.product.wish.filter(customer => customer.customername === this.currentUser.customername).length > 0;
   }
 
   wish() {
-    // this.productService.wish(this.product, this.currentCustomer);
+    // this.productService.wish(this.product, this.currentUser);
   }
 
   unwish() {
-    // this.productService.unwish(this.product, this.currentCustomer);
+    // this.productService.unwish(this.product, this.currentUser);
   }
 }

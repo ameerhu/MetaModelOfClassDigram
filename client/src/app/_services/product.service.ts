@@ -3,13 +3,17 @@ import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Product, Customer } from '../model';
 import { config } from '../config';
 import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
   products: BehaviorSubject<Product[]> = new BehaviorSubject([]);
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) { }
 
   getAll(searchTerm?) {
     let queryString = '';
@@ -23,18 +27,14 @@ export class ProductService {
   }
 
   getAllByCriteria(data?) {
-    if (data)  {
-      console.log("True if");
-      // console.log(data);
+    if (data) {
       data = JSON.parse(data);
-      // console.log(data.location);
       console.log('/products?filter[where][location][like]=' + data.location);
       this.http.get<Product[]>(config.apiUrl + '/products?filter[where][location][like]=' + data.location)
         .subscribe(data => {
           this.products.next(data);
         });
     } else {
-      console.log("if false");
       this.http.get<Product[]>(config.apiUrl + '/products')
         .subscribe(data => {
           this.products.next(data);
@@ -43,7 +43,11 @@ export class ProductService {
   }
 
   createProduct(formData) {
-    return this.http.post(config.apiUrl + '/products', formData);
+    return this.http.post(config.apiUrl + '/products', formData)
+      .subscribe(data => {
+        this.getAll();
+        this.router.navigate(['/']);
+      });
   }
 
   // solveProduct(product: Product) {

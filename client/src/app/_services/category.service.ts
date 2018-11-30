@@ -10,6 +10,6 @@ export class CategoryService {
   constructor(private http: HttpClient) { }
 
   get() {
-    return this.http.get(config.apiUrl + '/Categories');
+    return this.http.get(config.apiUrl + '/categories');
   }
 }

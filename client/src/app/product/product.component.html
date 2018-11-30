@@ -2,18 +2,19 @@
   <mat-card-header>
     <!-- <div mat-card-avatar class="product-header-image" [ngStyle]="{'background-image': 'url('+ product.createdBy.avatar + ')'}"></div> -->
     <div mat-card-avatar class="product-header-image">
-      <img ngxGravatar class="product-header-image" [email]="currentCustomer.email" size="40">
+      <img ngxGravatar class="product-header-image" [email]="currentUser.email" size="40">
     </div>
-    <mat-card-title>{{currentCustomer.name}}</mat-card-title>
+    <mat-card-title>{{currentUser.username}}</mat-card-title>
     <mat-card-subtitle>{{product.postedDate | date: 'short'}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <b>{{product.name}}</b>
-    <p> {{product.description}} </p>
+    <p>{{product.description}}</p>
   </mat-card-content>
   <div class="card-image-list">
-    <div class="card-image-wrapper" >
-      <img src="http://pluspng.com/img-png/iphone-6s-logo-vector-png-apple-iphone-6s-logo-vector-200.png">
+    <div class="card-image-wrapper">
+      <img *ngIf="product.images.length" [src]="product.images[0]" (click)="detailProduct(product)"/>
+      <img *ngIf="!product.images.length" src="http://pluspng.com/img-png/iphone-6s-logo-vector-png-apple-iphone-6s-logo-vector-200.png"/>
     </div>
   </div>
   <mat-list>
@@ -25,7 +26,7 @@
       (click)="hasWished()? unwish() : wish()">
       Wish
     </button>
-    <!--*ngIf="!product.solved && product.createdBy.customername === currentCustomer.customername"-->
+    <!--*ngIf="!product.solved && product.createdBy.customername === currentUser.customername"-->
     <button class="button-buy" mat-raised-button color="primary"
       (click)="buy()">
       Buy

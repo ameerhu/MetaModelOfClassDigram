@@ -22,3 +22,10 @@
 .toolbar-buttons button {
   margin: 4px;
 }
+
+button.button-new-product {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 100;
+}
