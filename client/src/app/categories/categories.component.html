@@ -1,0 +1,3 @@
+<mat-nav-list *ngFor="let category of categories$ | async">
+  <a mat-list-item routerLink="{{category.id}}">{{category.name}}</a>
+</mat-nav-list>

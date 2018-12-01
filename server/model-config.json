@@ -14,25 +14,45 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "mlab"
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "mlab",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "mlab",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "mlab",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "mlab",
     "public": false
+  },
+  "Category": {
+    "dataSource": "mlab",
+    "public": true
+  },
+  "Product": {
+    "dataSource": "mlab",
+    "public": true
+  },
+  "Customer": {
+    "dataSource": "mlab",
+    "public": true
+  },
+  "Wishlist": {
+    "dataSource": "mlab",
+    "public": true
+  },
+  "Message": {
+    "dataSource": "mlab",
+    "public": true
   }
 }
